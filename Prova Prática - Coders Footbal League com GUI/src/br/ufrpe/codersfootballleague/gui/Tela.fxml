@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.codersfootballleague.gui.TelaController">
+  <tabs>
+    <Tab text="Equipes">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <TableView fx:id="equipes" prefHeight="112.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn fx:id="nomesEquipes" prefWidth="75.0" sortable="false" text="Equipes" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </top>
+               <right>
+                  <AnchorPane prefHeight="158.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TextField fx:id="nomeEquipe" layoutX="96.0" layoutY="14.0" />
+                        <Button fx:id="btnAdicionarEquipe" layoutX="328.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" text="Adicionar" />
+                        <Button fx:id="btnRemoverEquipe" layoutX="495.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" text="Remover" />
+                        <Button fx:id="btnAtualizarEquipe" layoutX="413.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" text="Atualizar" />
+                        <TableView fx:id="jogadores" layoutY="60.0" prefHeight="106.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="nomesJogadores" prefWidth="404.0" text="Jogador" />
+                            <TableColumn fx:id="camisaJogadores" prefWidth="194.0" sortable="false" text="Camisa" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Text layoutX="36.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Equipe :">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </right>
+               <bottom>
+                  <AnchorPane prefHeight="101.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TitledPane animated="false" collapsible="false" layoutY="-6.0" prefHeight="108.0" prefWidth="600.0" text="Jogador">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="nomeJogador" layoutX="53.0" layoutY="37.0" />
+                                    <TextField fx:id="camisaJogador" layoutX="230.0" layoutY="37.0" prefHeight="25.0" prefWidth="54.0" />
+                                    <Button fx:id="btnAdicionarJogador" layoutX="346.0" layoutY="26.0" mnemonicParsing="false" onAction="#handle" text="Adicionar" />
+                                    <Button fx:id="btnRemoverJogador" layoutX="440.0" layoutY="26.0" mnemonicParsing="false" onAction="#handle" text="Remover" />
+                                    <Text layoutX="107.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="234.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Camisa :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
+               </bottom>
+            </BorderPane>
+         </content></Tab>
+    <Tab text="Campeonatos">
+         <content>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Campeonato">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="nomeCampeonato" layoutX="69.0" layoutY="75.0" />
+                              <DatePicker fx:id="dataInicioCampeonato" layoutX="286.0" layoutY="75.0" />
+                              <TableView fx:id="equipesParticipantes" layoutX="340.0" layoutY="190.0" prefHeight="166.0" prefWidth="260.0">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <columns>
+                                    <TableColumn fx:id="nomesEquipesParticipantes" prefWidth="75.0" sortable="false" text="Equipes Participantes" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="btnAdicionarEquipeCampeonato" layoutX="267.0" layoutY="213.0" mnemonicParsing="false" onAction="#handle" text="Adicionar" />
+                              <Button fx:id="btnRemoverEquipeCampeonato" layoutX="269.0" layoutY="273.0" mnemonicParsing="false" onAction="#handle" text="Remover" />
+                              <Button fx:id="btnSimularCampeonato" layoutX="505.0" layoutY="75.0" mnemonicParsing="false" onAction="#handle" text="Simular" />
+                              <Text layoutX="76.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Campeonato :">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="331.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Inicio :">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Text>
+                              <TableView fx:id="equipesLivres" layoutY="190.0" prefHeight="166.0" prefWidth="260.0">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <columns>
+                                    <TableColumn fx:id="nomesEquipesLivres" prefWidth="75.0" sortable="false" text="Equipes" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Calendario">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="partidas" layoutX="1.0" layoutY="101.0" prefHeight="256.0" prefWidth="600.0">
+                                <columns>
+                                  <TableColumn fx:id="equipeDaCasa" prefWidth="75.0" text="Time da casa" />
+                                  <TableColumn fx:id="equipeVisitante" prefWidth="75.0" text="Time visitante" />
+                                    <TableColumn fx:id="placarDaCasa" prefWidth="75.0" text="Placar da casa" />
+                                    <TableColumn fx:id="placarVisitante" prefWidth="75.0" text="Placar visitante" />
+                                    <TableColumn fx:id="data" prefWidth="75.0" text="Data" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <TableView fx:id="campeonatos" layoutY="-2.0" prefHeight="68.0" prefWidth="600.0">
+                                <columns>
+                                  <TableColumn fx:id="nomesCampeonatos" prefWidth="75.0" text="Campeonatos" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <Button fx:id="btnConsultar" layoutX="275.0" layoutY="72.0" mnemonicParsing="false" onAction="#handle" text="Consultar" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Tabela">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tabela" layoutY="101.0" prefHeight="255.0" prefWidth="600.0">
+                                <columns>
+                                  <TableColumn fx:id="nomeTabela" prefWidth="297.0" text="Equipe" />
+                                  <TableColumn fx:id="pontos" prefWidth="301.0" text="Pontos" />
+                                    <TableColumn fx:id="saldoGols" prefWidth="75.0" text="SG" />
+                                    <TableColumn fx:id="golsAFavor" prefWidth="75.0" text="GP" />
+                                    <TableColumn fx:id="golsContra" prefWidth="75.0" text="GC" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <TableView fx:id="campeonatos1" prefHeight="68.0" prefWidth="600.0">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <columns>
+                                    <TableColumn fx:id="nomesCampeonatos1" prefWidth="75.0" text="Campeonatos" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="btnConsultar1" layoutX="274.0" layoutY="72.0" mnemonicParsing="false" onAction="#handle" text="Consultar" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </content></Tab>
+  </tabs>
+</TabPane>
